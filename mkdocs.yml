@@ -1,0 +1,42 @@
+site_name: unittest-learning
+repo_url: https://github.com/ChargeStorm/unittest-learning
+theme:
+  name: material
+  logo: assets/dark_logo.png
+  palette:
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: custom
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+
+    - scheme: default
+      primary: custom
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: google
+            merge_init_into_class: true
+            show_source: true
+            members_order: source
+
+nav:
+  - Home: index.md
+  - Assertion: assertion.md
+  - Mocking: mocking.md
+
+watch:
+  - tests/
