@@ -53,12 +53,16 @@ class TestMocking:
             with open('dummy_file.txt') as f:
                 assert f.read() == 'mocked file content'
 
-    def test_mock_directory_structure(self):
+    def test_mock_directory_structure_with_files(self, tmp_path):
         """
-        This test demonstrates mocking directory structure.
+        This test demonstrates mocking directory structure using tmp_path.
         """
-        with mock.patch('os.listdir', return_value=['file1.txt', 'file2.txt']):
-            assert os.listdir('dummy_directory') == ['file1.txt', 'file2.txt']
+        d = tmp_path / "dummy_directory"
+        d.mkdir()
+        (d / "file1.txt").write_text("content1")
+        (d / "file2.txt").write_text("content2")
+        with mock.patch('os.listdir', return_value=sorted([p.name for p in d.iterdir()])):
+            assert sorted(os.listdir(d)) == ['file1.txt', 'file2.txt']
 
     def test_mock_api_response(self):
         """
