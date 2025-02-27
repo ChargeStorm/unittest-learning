@@ -411,6 +411,18 @@ wheels = [
 ]
 
 [[package]]
+name = "pytest-mock"
+version = "3.14.0"
+source = { registry = "https://pkgs.dev.azure.com/CTEKSwedenAB/_packaging/ctek/pypi/simple/" }
+dependencies = [
+    { name = "pytest" },
+]
+sdist = { url = "https://pkgs.dev.azure.com/CTEKSwedenAB/_packaging/45f42d0c-39f3-489e-8507-edc0e442b80a/pypi/download/pytest-mock/3.14/pytest-mock-3.14.0.tar.gz", hash = "sha256:2719255a1efeceadbc056d6bf3df3d1c5015530fb40cf347c0f9afac88410bd0" }
+wheels = [
+    { url = "https://pkgs.dev.azure.com/CTEKSwedenAB/_packaging/45f42d0c-39f3-489e-8507-edc0e442b80a/pypi/download/pytest-mock/3.14/pytest_mock-3.14.0-py3-none-any.whl", hash = "sha256:0b72c38033392a5f4621342fe11e9219ac11ec9d375f8e2a0c164539e0d70f6f" },
+]
+
+[[package]]
 name = "python-dateutil"
 version = "2.9.0.post0"
 source = { registry = "https://pkgs.dev.azure.com/CTEKSwedenAB/_packaging/ctek/pypi/simple/" }
@@ -552,6 +564,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "pytest" },
+    { name = "pytest-mock" },
 ]
 
 [package.dev-dependencies]
@@ -561,7 +574,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pytest", specifier = ">=8.3.4" }]
+requires-dist = [
+    { name = "pytest", specifier = ">=8.3.4" },
+    { name = "pytest-mock", specifier = ">=3.14.0" },
+]
 
 [package.metadata.requires-dev]
 dev = [

@@ -3,6 +3,8 @@ repo_url: https://github.com/ChargeStorm/unittest-learning
 theme:
   name: material
   logo: assets/dark_logo.png
+  features:
+    - content.code.copy
   palette:
     # Palette toggle for dark mode
     - scheme: slate
@@ -32,11 +34,14 @@ plugins:
             merge_init_into_class: true
             show_source: true
             members_order: source
+            show_root_heading: true
 
 nav:
   - Home: index.md
+  - Test Structure Methodology: test-structure-methodology.md
   - Assertion: assertion.md
   - Mocking: mocking.md
+  - Fixtures: fixtures.md
 
 watch:
   - tests/
