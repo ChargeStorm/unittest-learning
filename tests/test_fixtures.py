@@ -78,8 +78,8 @@ class TestFixtures:
 
 class TestUsingFixtures(TestFixtures):
     """
-    This class demonstrates the usage of the fixtures from
-    [TestFixtures](.TestFixtures) in test cases.
+    This class demonstrates the usage of the fixtures
+    defined in the TestFixtures class.
     """
 
     def test_simple_data_fixture(self, simple_data):
