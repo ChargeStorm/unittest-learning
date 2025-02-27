@@ -28,4 +28,5 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           python-version: ${{ matrix.py }}
+      - run: uv run pytest
       - run: uv run mkdocs gh-deploy --force
