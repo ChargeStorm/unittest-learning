@@ -1,5 +1,5 @@
 [![ci](https://github.com/ChargeStorm/unittest-learning/actions/workflows/ci.yml/badge.svg)](https://github.com/ChargeStorm/unittest-learning/actions/workflows/ci.yml)
-[![docs](https://img.shields.io/badge/Documentation-blue)](https://chargestorm.github.io/unittest-learning/)
+[![docs](https://img.shields.io/badge/Documentation-latest-blue)](https://chargestorm.github.io/unittest-learning/)
 [![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
 ![GitHub License](https://img.shields.io/github/license/ChargeStorm/unittest-learning)
 
