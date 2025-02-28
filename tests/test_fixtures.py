@@ -7,6 +7,10 @@ class TestFixtures:
 
     It's a great way to define reusable data or setup code that can be used
     across multiple tests.
+
+    !!! Note
+        Fixtures usually does not go into a class, but for demonstration
+        purposes, we are using a class here to group the fixtures together.
     """
 
     @pytest.fixture
