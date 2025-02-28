@@ -27,6 +27,7 @@ extra_css:
 plugins:
   - search
   - mkdocstrings:
+      custom_templates: templates
       handlers:
         python:
           options:
@@ -35,6 +36,11 @@ plugins:
             show_source: true
             members_order: source
             show_root_heading: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - Home: index.md

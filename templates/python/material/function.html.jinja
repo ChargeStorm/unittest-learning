@@ -1,0 +1,21 @@
+{% extends "_base/function.html.jinja" %}
+{% block source scoped %}
+  {#- Source block.
+  This block renders the source code for the function.
+  -#}
+  {% if config.show_source and function.source %}
+    <details class="quote" open>
+      {# <-- ADDED "open" ATTRIBUTE HERE #}
+      <summary>
+        {{ lang.t("Source code in") }} <code>
+        {%- if function.relative_filepath.is_absolute() -%}
+          {{ function.relative_package_filepath }}
+        {%- else -%}
+          {{ function.relative_filepath }}
+        {%- endif -%}
+      </code>
+    </summary>
+    {{ function.source|highlight(language="python", linestart=function.lineno or 0, linenums=True) }}
+  </details>
+{% endif %}
+{% endblock source %}
