@@ -48,6 +48,7 @@ nav:
   - Assertion: assertion.md
   - Mocking: mocking.md
   - Fixtures: fixtures.md
+  - Parametrization: parametrization.md
 
 watch:
   - tests/
