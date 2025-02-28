@@ -26,6 +26,7 @@ extra_css:
 
 plugins:
   - search
+  - autorefs
   - mkdocstrings:
       custom_templates: templates
       handlers:
@@ -49,6 +50,7 @@ nav:
   - Mocking: mocking.md
   - Fixtures: fixtures.md
   - Parametrization: parametrization.md
+  - Markers: markers.md
 
 watch:
   - tests/
