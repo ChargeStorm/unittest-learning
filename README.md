@@ -28,8 +28,8 @@ All examples are built using MkDocs and can be found [here](https://chargestorm.
   - [x] API responses
   - [x] Environment variables
 - [x] Fixtures
-- [ ] Parametrization
-- [ ] Markers
+- [x] Parametrization
+- [x] Markers
 - [ ] Exceptions
 - [ ] Capturing Output
 - [ ] Coverage reporting
