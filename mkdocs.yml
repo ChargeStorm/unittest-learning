@@ -5,6 +5,8 @@ theme:
   logo: assets/dark_logo.png
   features:
     - content.code.copy
+    - navigation.expand
+    - navigation.sections
   palette:
     # Palette toggle for dark mode
     - scheme: slate
@@ -45,12 +47,21 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Test Structure Methodology: test-structure-methodology.md
-  - Assertion: assertion.md
-  - Mocking: mocking.md
-  - Fixtures: fixtures.md
-  - Parametrization: parametrization.md
-  - Markers: markers.md
+  - Before Starting:
+      - Test Structure Methodology: test-structure-methodology.md
+      - Package Specific Test Libraries: package-specific-test-libraries.md
+      - Code Coverage: code-coverage.md
+      - Pytest Plugins: pytest-plugins.md
+      - Pytest CLI: pytest-cli.md
+  - Code Examples:
+      - Assertion: assertion.md
+      - Mocking: mocking.md
+      - Fixtures: fixtures.md
+      - Parametrization: parametrization.md
+      - Markers: markers.md
+      - Exceptions: exceptions.md
+      - Capturing Output: capturing-output.md
+      - Logging: logging.md
 
 watch:
   - tests/

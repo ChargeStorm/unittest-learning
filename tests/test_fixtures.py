@@ -1,5 +1,6 @@
 import pytest
 
+
 class TestFixtures:
     """
     Fixtures in Pytest provide a way to initialize resources and to provide
@@ -30,14 +31,11 @@ class TestFixtures:
                 {"id": 1, "name": "Alice"},
                 {"id": 2, "name": "Bob"},
             ],
-            "settings": {
-                "theme": "dark",
-                "notifications": True
-            }
+            "settings": {"theme": "dark", "notifications": True},
         }
         return data
 
-    @pytest.fixture(scope='module')
+    @pytest.fixture(scope="module")
     def database_connection(self):
         """
         This fixture mocks a database connection. It is set to module
@@ -49,16 +47,13 @@ class TestFixtures:
         connection = None
         print("Closed database connection")
 
-    @pytest.fixture(scope='session')
+    @pytest.fixture(scope="session")
     def app_config(self):
         """
         This fixture provides application configuration.
         It is set to session scope so it will be setup once per test session.
         """
-        config = {
-            "version": "1.0.0",
-            "name": "Sample Application"
-        }
+        config = {"version": "1.0.0", "name": "Sample Application"}
         yield config
         # No explicit teardown required for this example
 
@@ -79,6 +74,7 @@ class TestFixtures:
         monkeypatch.setenv("ENV_VAR", "mocked_value")
         yield
         monkeypatch.undo()
+
 
 class TestUsingFixtures(TestFixtures):
     """
@@ -127,6 +123,7 @@ class TestUsingFixtures(TestFixtures):
         This test uses the mock_environment_variable fixture.
         """
         import os
+
         assert os.getenv("ENV_VAR") == "mocked_value"
 
     def test_combined_fixtures(self, simple_data, complex_data, app_config):

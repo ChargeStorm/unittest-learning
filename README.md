@@ -13,25 +13,22 @@ For people that are more into Python, some examples are implemented with both Py
 
 All examples are built using MkDocs and can be found [here](https://chargestorm.github.io/unittest-learning/).
 
-## What has been implemented so far
+## Table of Contents
 
-- [x] Assertion
-- [x] Test structure methodology
-  - [x] Given, When, Then
-  - [x] Arrange, Act, Assert
-- [x] Mocking
-  - [x] Variables
-  - [x] Functions
-  - [x] Classes
-  - [x] File input
-  - [x] Directory structure
-  - [x] API responses
-  - [x] Environment variables
-- [x] Fixtures
-- [x] Parametrization
-- [x] Markers
-- [ ] Exceptions
-- [ ] Capturing Output
-- [ ] Coverage reporting
-- [ ] Plugins
-- [ ] Logging
+### Before Starting
+
+- [Test Structure Methodology](test-structure-methodology.md)
+- [Package Specific Test Libraries](package-specific-test-libraries.md)
+- [Code Coverage](code-coverage.md)
+- [Pytest Plugins](pytest-plugins.md)
+
+### Code Examples
+
+- [Assertion](assertion.md)
+- [Mocking](mocking.md)
+- [Fixtures](fixtures.md)
+- [Parametrization](parametrization.md)
+- [Markers](markers.md)
+- [Exceptions](exceptions.md)
+- [Capturing Output](capturing-output.md)
+- [Logging](logging.md)

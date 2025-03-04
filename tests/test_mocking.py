@@ -5,19 +5,24 @@ import requests
 
 VARIABLE = "original_value"
 
+
 def function_to_mock(arg1: str = "original result"):
     return arg1
 
+
 class ClassToMock:
     variable = "original variable"
+
     def method(self):
         return "original method result"
+
 
 class TestMockingVariables:
     """
     Mocking is a technique used in unit testing to replace real objects with mock objects.
     This is useful when you want to isolate the code being tested from external dependencies.
     """
+
     def test_mock_variable_unittest(self):
         """
         This test demonstrates mocking a variable with Pythons
@@ -44,8 +49,10 @@ class TestMockingFunctions:
         This test demonstrates mocking a function with Pythons
         built-in unittest.mock library.
         """
+
         def mock_function():
             return "mocked result"
+
         with mock.patch("tests.test_mocking.function_to_mock", mock_function):
             assert function_to_mock() == "mocked result"
 
@@ -69,7 +76,9 @@ class TestMockingFunctions:
 
         Note that this do not use a context manager like the unittest.mock library.
         """
-        mocker.patch("tests.test_mocking.function_to_mock", return_value="mocked result")
+        mocker.patch(
+            "tests.test_mocking.function_to_mock", return_value="mocked result"
+        )
         assert function_to_mock() == "mocked result"
 
     def test_mock_function_pytest_assert_called_with(self, mocker):
@@ -88,13 +97,16 @@ class TestMockingClasses:
     """
     This class demonstrates how to mock classes, methods, and class variables.
     """
+
     def test_mock_class_variable_unittest(self):
         """
         This test demonstrates mocking a class variable using the
         unittest.mock library.
         """
+
         class MockClass:
             variable = "mocked variable"
+
         with mock.patch("tests.test_mocking.ClassToMock", MockClass):
             instance = ClassToMock()
             assert instance.variable == "mocked variable"
@@ -112,9 +124,11 @@ class TestMockingClasses:
         This test demonstrates mocking a class method using the
         unittest.mock library.
         """
+
         class MockClass:
             def method(self):
                 return "mocked method result"
+
         with mock.patch("tests.test_mocking.ClassToMock", MockClass):
             instance = ClassToMock()
             assert instance.method() == "mocked method result"
@@ -123,7 +137,9 @@ class TestMockingClasses:
         """
         This test demonstrates mocking a class method using the pytest-mock library.
         """
-        mocker.patch("tests.test_mocking.ClassToMock.method", return_value="mocked method result")
+        mocker.patch(
+            "tests.test_mocking.ClassToMock.method", return_value="mocked method result"
+        )
         instance = ClassToMock()
         assert instance.method() == "mocked method result"
 
@@ -155,8 +171,7 @@ class TestMockingFilesAndDirectories:
         """
         with TemporaryDirectory() as d:
             with mock.patch("os.listdir", return_value=["file1.txt", "file2.txt"]):
-                assert sorted(os.listdir(d)) == ["file1.txt",
-                                                 "file2.txt"]
+                assert sorted(os.listdir(d)) == ["file1.txt", "file2.txt"]
 
     def test_mock_directory_pytest(self, tmp_path):
         """
@@ -167,13 +182,17 @@ class TestMockingFilesAndDirectories:
         d.mkdir()
         (d / "file1.txt").write_text("content1")
         (d / "file2.txt").write_text("content2")
-        with mock.patch("os.listdir", return_value=sorted([p.name for p in d.iterdir()])):
+        with mock.patch(
+            "os.listdir", return_value=sorted([p.name for p in d.iterdir()])
+        ):
             assert sorted(os.listdir(d)) == ["file1.txt", "file2.txt"]
+
 
 class TestMockingEnvironmentVariables:
     """
     This class demonstrates how to mock environment variables.
     """
+
     def test_mock_environment_variable_unittest(self):
         """
         This test demonstrates mocking an environment variable using the
@@ -189,10 +208,12 @@ class TestMockingEnvironmentVariables:
         mocker.patch.dict(os.environ, {"ENV_VAR": "mocked_value"})
         assert os.environ["ENV_VAR"] == "mocked_value"
 
+
 class TestMockingApi:
     """
     This class demonstrates how to mock API responses.
     """
+
     def test_mock_api_response_unittest(self):
         """
         This test demonstrates mocking an API response.
@@ -216,4 +237,3 @@ class TestMockingApi:
         response = requests.get("https://api.example.com/data")
         assert response.status_code == 200
         assert response.json() == {"key": "value"}
-

@@ -1,5 +1,6 @@
 import pytest
 
+
 class TestAssertion:
     """
     Assertion is one of the fundamental concepts in testing, used to
@@ -45,7 +46,9 @@ class TestAssertion:
         """
         string = "Hello, world!"
         substring = "world"
-        assert substring in string, f"The string should contain the substring '{substring}'"
+        assert substring in string, (
+            f"The string should contain the substring '{substring}'"
+        )
 
     def test_dict_key_presence(self):
         """
@@ -65,7 +68,7 @@ class TestAssertion:
         """
         This test checks the truthiness of a boolean expression.
         """
-        condition = (1 + 1 == 2)
+        condition = 1 + 1 == 2
         assert condition, "The boolean expression should be True"
 
     def test_approximate_equality(self):
@@ -74,4 +77,6 @@ class TestAssertion:
         """
         num1 = 0.1 + 0.2
         num2 = 0.3
-        assert num1 == pytest.approx(num2), "The two numbers should be approximately equal"
+        assert num1 == pytest.approx(num2), (
+            "The two numbers should be approximately equal"
+        )

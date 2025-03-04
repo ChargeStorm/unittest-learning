@@ -1,5 +1,6 @@
 import pytest
 
+
 class TestMarkers:
     """
     This class demonstrates the usage of various markers in pytest.
@@ -47,11 +48,14 @@ class TestMarkers:
         """
         assert 1 == 2
 
-    @pytest.mark.parametrize("input_data, expected", [
-        (1, 2),
-        (2, 3),
-        (3, 4),
-    ])
+    @pytest.mark.parametrize(
+        "input_data, expected",
+        [
+            (1, 2),
+            (2, 3),
+            (3, 4),
+        ],
+    )
     def test_parametrized(self, input_data, expected):
         """
         This test uses the parametrize marker to test multiple inputs.
