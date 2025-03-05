@@ -12,7 +12,7 @@ The definition of unit tests can vary depending on who you ask, which is why it 
 
 Here we've choosen to use the definition from Michael Feathers book [Working Effectively with Legacy Code](https://www.amazon.se/-/en/Michael-Feathers/dp/0131177052).
 
-In short, a test is not a unit test if:
+In short, a test is **not** a unit test if:
 
 > 1. It talks to external resources (e.g. a database, the network, the file system, environment variables…)
 > 2. It doesn’t run fast ( < 100ms/test)
