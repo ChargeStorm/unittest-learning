@@ -46,6 +46,6 @@ jobs:
       - template: templates/docshost/publish-docs-step.yml@pipeline-utilities
         parameters:
           artifact: "$(docs-name)-$(docs-version).zip"
-          uniqueKey: $(DOCSHOST_UNIQUE_KEY)
+          uniqueKey: "$(DOCSHOST_UNIQUE_KEY)"
           reupload: true
           pipelineArtifact: "" # Note: If pipelineArtifact is set to empty, it will skip the download step and use the artifact from the current job.
