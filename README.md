@@ -11,7 +11,21 @@ While the examples are written in Python, the concepts are applicable to any lan
 
 For people that are more into Python, some examples are implemented with both Pythons built in `unittest` framework as well as the third party `pytest` framework to show the differences and similarities between the two.
 
-All examples are built using MkDocs and can be found [here](https://chargestorm.github.io/unittest-learning/).
+In the future the documentation will be shared on a Github Pages site, but for now you can clone the repository and build the documentation locally.
+
+Start by install uv:
+
+```bash
+pip install uv
+```
+
+Then run mkdocs serve to build and serve the documentation locally:
+
+```bash
+uv run mkdocs serve
+```
+
+The documentation will be available at http://127.0.0.1:8000/ during serving.
 
 ## Table of Contents
 
