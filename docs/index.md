@@ -18,7 +18,7 @@ In short, a test is **not** a unit test if:
 > 2. It doesn’t run fast ( < 100ms/test)
 
 !!! info
-    The book `Working Effectively with Legacy Code` is available at our office for borrowing.
+The book `Working Effectively with Legacy Code` is available at our office for borrowing.
 
 So from that definition we can conclude that a unit test does not need to be confined to single function or method, but can span multiple functions or methods as long as it does not talk to external resources and runs fast.
 
@@ -34,6 +34,7 @@ We should be able to check out the repository, run the tests without any externa
 - [Package Specific Test Libraries](package-specific-test-libraries.md)
 - [Code Coverage](code-coverage.md)
 - [Pytest Plugins](pytest-plugins.md)
+- [Pytest CLI](pytest-cli.md)
 
 ### Code Examples
 
