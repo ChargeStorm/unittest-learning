@@ -37,12 +37,6 @@ jobs:
           replaceExistingArchive: true
         displayName: "Create docs zip"
 
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: "$(docs-name)-$(docs-version).zip"
-          artifact: "$(docs-name)-$(docs-version).zip"
-          publishLocation: "pipeline"
-
       - template: templates/docshost/publish-docs-step.yml@pipeline-utilities
         parameters:
           artifact: "$(docs-name)-$(docs-version).zip"

@@ -1,5 +1,6 @@
 site_name: unittest-learning
 repo_url: https://github.com/ChargeStorm/unittest-learning
+use_directory_urls: false
 theme:
   name: material
   logo: assets/dark_logo.png
