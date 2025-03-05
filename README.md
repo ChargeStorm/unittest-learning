@@ -26,23 +26,3 @@ uv run mkdocs serve
 ```
 
 The documentation will be available at http://127.0.0.1:8000/ during serving.
-
-## Table of Contents
-
-### Before Starting
-
-- [Test Structure Methodology](test-structure-methodology.md)
-- [Package Specific Test Libraries](package-specific-test-libraries.md)
-- [Code Coverage](code-coverage.md)
-- [Pytest Plugins](pytest-plugins.md)
-
-### Code Examples
-
-- [Assertion](assertion.md)
-- [Mocking](mocking.md)
-- [Fixtures](fixtures.md)
-- [Parametrization](parametrization.md)
-- [Markers](markers.md)
-- [Exceptions](exceptions.md)
-- [Capturing Output](capturing-output.md)
-- [Logging](logging.md)
