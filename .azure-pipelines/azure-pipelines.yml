@@ -1,19 +1,51 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+  - main
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+variables:
+  docs-name: "unittest-learning"
+  docs-version: "main"
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+resources:
+  repositories:
+    - repository: pipeline-utilities
+      type: git
+      name: ctek/pipeline-utilities
+      ref: refs/tags/2.6.0
+jobs:
+  - job: "docs"
+    displayName: "Build docs and upload to docshost"
+    steps:
+      - checkout: self
+
+      - bash: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+        displayName: "Install uv"
+
+      - bash: |
+          uv run --all-groups mkdocs build
+        displayName: "Mkdocs build"
+
+      - task: ArchiveFiles@2
+        inputs:
+          rootFolderOrFile: "site"
+          includeRootFolder: false
+          archiveType: "zip"
+          archiveFile: "$(docs-name)-$(docs-version).zip"
+          replaceExistingArchive: true
+        displayName: "Create docs zip"
+
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: "$(docs-name)-$(docs-version).zip"
+          artifact: "$(docs-name)-$(docs-version).zip"
+          publishLocation: "pipeline"
+
+      - template: templates/docshost/publish-docs-step.yml@pipeline-utilities
+        parameters:
+          artifact: "$(docs-name)-$(docs-version).zip"
+          uniqueKey: $(DOCSHOST_UNIQUE_KEY)
+          reupload: true
+          pipelineArtifact: "" # Note: If pipelineArtifact is set to empty, it will skip the download step and use the artifact from the current job.
